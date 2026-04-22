@@ -1,6 +1,3 @@
-
-
-```markdown
 # 📝 Todo App
 
 A full-stack Todo application built with **React Native** (frontend) and **Node.js + Redis** (backend). Supports creating, editing, deleting, saving, and restoring todos via a REST API.
@@ -9,14 +6,16 @@ A full-stack Todo application built with **React Native** (frontend) and **Node.
 
 ## 🗂 Project Structure
 
-```
+~~~
 project/
 ├── frontend/
 │   └── app/
 │       └── index.js       # React Native UI
 └── backend/
     └── server.js          # Express + Redis API
-```
+~~~
+
+---
 
 ## ⚙️ Prerequisites
 
@@ -30,45 +29,43 @@ project/
 
 ### 1. Start Redis
 
-Make sure Redis is running locally:
-
-```bash
+~~~bash
 redis-server
-```
+~~~
 
 ### 2. Start the Backend
 
-```bash
+~~~bash
 cd backend
 npm install
 node server.js
-```
+~~~
 
 The server will start at `http://localhost:3001`.
 
 ### 3. Start the Frontend
 
-```bash
+~~~bash
 cd frontend
 npm install
 npx expo start
-```
+~~~
 
 ---
 
 ## 🔌 API Endpoints
 
-| Method | Endpoint | Description                         |
-|--------|----------|-------------------------------------|
-| `GET`  | `/load`  | Load all todos from Redis           |
-| `POST` | `/save`  | Save the current todo list to Redis |
-| `GET`  | `/clear` | Delete all todos from Redis         |
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/load` | Load all todos from Redis |
+| `POST` | `/save` | Save the current todo list to Redis |
+| `GET` | `/clear` | Delete all todos from Redis |
 
 ### `POST /save` — Request Body
 
-```json
+~~~json
 ["Buy groceries", "Walk the dog", "Read a book"]
-```
+~~~
 
 ---
 
@@ -85,12 +82,12 @@ npx expo start
 
 ## 🛠 Tech Stack
 
-| Layer      | Technology         |
-|------------|--------------------|
-| Frontend   | React Native       |
-| Backend    | Node.js, Express   |
-| Database   | Redis              |
-| HTTP Client| Axios              |
+| Layer | Technology |
+|-------|------------|
+| Frontend | React Native |
+| Backend | Node.js, Express |
+| Database | Redis |
+| HTTP Client | Axios |
 
 ---
 
@@ -99,4 +96,3 @@ npx expo start
 - Todos are persisted in a Redis list under the key `todos`.
 - The frontend automatically restores todos from the backend on startup.
 - The backend URL is configured in `frontend/app/index.js` via the `BASE_URL` constant — update this if deploying to a non-local environment.
-```
